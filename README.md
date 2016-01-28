@@ -9,7 +9,7 @@
 A [https://nodejs.org/](https://nodejs.org/) web app base template
 
 * [Express 4.x](http://expressjs.com/)
-* [Postgres promise](https://github.com/vitaly-t/pg-promise) or ORM (see Working with Postgres section below)
+* [Mongoose](https://github.com/Automattic/mongoose) for working with MongoDB database
 * [Swig](http://paularmstrong.github.io/swig/). Its not maintained now, [see here](https://github.com/paularmstrong/swig/issues/628)
 * [Bluebird](bluebirdjs.com). ES2015 Promises and Generator for async executions
 

@@ -7,23 +7,23 @@ This idea of a unit of work means, to me, that a unit can span as little as a si
 You might feel that you’d like to minimize the size of a unit of work being tested. I used to feel that way. But I don’t anymore. I believe if you can create a unit of work that’s larger, and where its end result is more noticeable to an end user of the API, you’re creating tests that are more maintainable. If you try to minimize the size of a unit of work, you end up faking things down the line that aren’t really end results to the user of a public API but instead are just train stops on the way to the main station
 
 A unit test should have the following properties:
-■ It should be automated and repeatable.
-■ It should be easy to implement.
-■ It should be relevant tomorrow.
-■ Anyone should be able to run it at the push of a button.
-■ It should run quickly.
-■ It should be consistent in its results (it always returns the same result if you don’t change anything between runs).
-■ It should have full control of the unit under test.
-■ It should be fully isolated (runs independently of other tests).
-■ When it fails, it should be easy to detect what was expected and determine how to pinpoint the problem.
 
+* It should be automated and repeatable.
+* It should be easy to implement.
+* It should be relevant tomorrow.
+* Anyone should be able to run it at the push of a button.
+* It should run quickly.
+* It should be consistent in its results (it always returns the same result if you don’t change anything between runs).
+* It should have full control of the unit under test.
+* It should be fully isolated (runs independently of other tests).
+* When it fails, it should be easy to detect what was expected and determine how to pinpoint the problem.
 
 It’s important to realize that TDD doesn’t ensure project success or tests that are robust or maintainable. It’s quite easy to get caught up in the technique of TDD and not pay attention to the way unit tests are written: their naming, how maintainable or readable they are, and whether they test the right things or might have bugs. That’s why I’m writing this book.
 The technique of TDD is quite simple:
 
-1 Write a failing test to prove code or functionality is missing from the end product. The test is written as if the production code were already working, so the test failing means there’s a bug in the production code. If I wanted to add a new feature to a calculator class that remembers the LastSum value, I’d write a test that verifies that LastSum is indeed the correct value. The test will fail to compile, and after adding only the needed code to make it compile (without the real functionality to remember the number), the test will now run, and fail, because I haven’t implemented that functionality yet.
-2 Make the test pass by writing production code that meets the expectations of your test. The production code should be kept as simple as possible.
-3 Refactor your code. When the test passes, you’re free to move on to the next unit test or to refactor your code to make it more readable, to remove code duplica- tion, and so on.
+1. Write a failing test to prove code or functionality is missing from the end product. The test is written as if the production code were already working, so the test failing means there’s a bug in the production code. If I wanted to add a new feature to a calculator class that remembers the LastSum value, I’d write a test that verifies that LastSum is indeed the correct value. The test will fail to compile, and after adding only the needed code to make it compile (without the real functionality to remember the number), the test will now run, and fail, because I haven’t implemented that functionality yet.
+1. Make the test pass by writing production code that meets the expectations of your test. The production code should be kept as simple as possible.
+1. Refactor your code. When the test passes, you’re free to move on to the next unit test or to refactor your code to make it more readable, to remove code duplica- tion, and so on.
 
 DEFINITION A unit test is an automated piece of code that invokes the unit of work being tested, and then checks some assumptions about a single end result of that unit. A unit test is almost always written using a unit testing framework. It can be written easily and runs quickly. It’s trustworthy, readable, and maintainable. It’s consistent in its results as long as production code hasn’t changed.
 
@@ -183,11 +183,13 @@ DEFINITION A stub is a controllable replacement for an existing dependency (or c
 [SCENARIO]
 The LogAnalyzer class application can be configured to handle multiple log filename extensions using a special adapter for each file. Let’s assume that the allowed filenames are stored somewhere on disk as a configuration setting for the application, and that the IsValidLogFileName method looks like this:
 
+```
 public bool IsValidFileName(string fileName)
 {
     //read through the configuration file
     //return true if configuration says extension is supported.
 }
+```
 
 How to test it? Once this test depends on the filesystem, you’re performing an integration test, and you have all the associated problems: integration tests are slower to run, they need configuration, they test multiple things, and so on.
 
@@ -196,7 +198,6 @@ DEFINITION Refactoring is the act of changing code without changing the code’s
 DEFINITION Seams are places in your code where you can plug in different functionality, such as stub classes, adding a constructor parameter, adding a public settable property, making a method virtual so it can be overridden, or externalizing a delegate as a parameter or property so that it can be set from outside a class. Seams are what you get by implementing the Open-Closed Principle, where a class’s functionality is open for extenuation, but its source code is closed for direct modification. 
 
 Introducing a layer of indirection to avoid a direct dependency on the filesystem. The code that calls the filesystem is separated into a FileExtensionManager class, which will later be replaced with a stub in your test.
-
 
 IsValidFileName -> Filesystem
 
@@ -208,16 +209,17 @@ IExtensionManager -> FileExtensionManager
                   -> StubFileExtensionManager  
 
 There are two types of dependency-breaking refactorings, and one depends on the other. I call them Type A and Type B refactorings:
-■ Type A—Abstracting concrete objects into interfaces or delegates
-■ Type B—Refactoring to allow injection of fake implementations of those delegates or interfaces
+
+* Type A—Abstracting concrete objects into interfaces or delegates
+* Type B—Refactoring to allow injection of fake implementations of those delegates or interfaces
 
 In the following list, only the first item is a Type A refactoring. The rest are Type B refactorings:
-■ Type A—Extract an interface to allow replacing underlying implementation.
-■ Type B—Inject stub implementation into a class under test.
-■ Type B—Inject a fake at the constructor level.
-■ Type B—Inject a fake as a property get or set.
-■ Type B—Inject a fake just before a method call.
 
+* Type A—Extract an interface to allow replacing underlying implementation.
+* Type B—Inject stub implementation into a class under test.
+* Type B—Inject a fake at the constructor level.
+* Type B—Inject a fake as a property get or set.
+* Type B—Inject a fake just before a method call.
 
 ```
 public bool IsValidLogFileName(string fileName)
@@ -409,7 +411,7 @@ public class LogAnalyzer
 
 It’s perfectly OK to have multiple stubs in a single test, but more than a single mock can mean trouble, because you’re testing more than one thing.
 
-[SCENARIO]
+[SCENARIO] 
 This time LogAnalyzer not only needs to talk to a web service, but if the web service throws an error, LogAnalyzer has to log the error to a different external dependency, sending it by email to the web service administrator
 
 The web service will be stubbed out to simulate an exception; then the email sender will be mocked to see if it was called correctly. The whole test will be about how LogAnalyzer interacts with other objects.
@@ -425,8 +427,4 @@ Another good way to avoid call chains is to create special wrapper classes aroun
 DEFINITION An isolation framework is a set of programmable APIs that makes cre- ating fake objects much simpler, faster, and shorter than hand-coding them.
 
 Isolation frameworks, when designed well, can save the developer from the need to write repetitive code to assert or simulate object interactions, and if they’re designed very well, they can make tests last many years without making the developer come back to fix them on every little production code change.
-
-
-
-
 
