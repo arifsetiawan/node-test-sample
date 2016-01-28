@@ -1,0 +1,68 @@
+{
+  "name": "node-test-sample",
+  "version": "0.1.0",
+  "description": "Sample for Node.js unit and integration testing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arifsetiawan/node-test-sample.git"
+  },
+  "main": "app.js",
+  "keywords": [
+    "nodejs",
+    "node",
+    "base",
+    "template",
+    "app",
+    "bootstrap",
+    "test",
+    "tdd",
+    "unit",
+    "integration"
+  ],
+  "contributors": [
+    {
+      "name": "Nurul Arif Setiawan",
+      "email": "arif@dycode.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arifsetiawan/node-test-sample/issues"
+  },
+  "scripts": {
+    "start": "APPCONFIG=dev.local nodemon --ext \".js|.css|.html\" app.js",
+    "integration": "APPCONFIG=dev.local NODE_ENV=test node_modules/mocha/bin/mocha test/integration/",
+    "unit": "NODE_ENV=test node_modules/mocha/bin/mocha test/unit/"
+  },
+  "dependencies": {
+    "async": "~1.5.0",
+    "bcryptjs": "~2.3.0",
+    "bluebird": "^3.0.5",
+    "body-parser": "~1.14.1",
+    "connect-flash": "~0.1.1",
+    "connect-mongo": "^1.1.0",
+    "cookie-parser": "~1.4.0",
+    "express": "~4.13.3",
+    "express-session": "~1.12.1",
+    "formidable": "~1.0.17",
+    "fs-extra": "^0.26.2",
+    "i18n": "^0.5.0",
+    "include-all": "~0.1.6",
+    "lodash": "~3.10.1",
+    "moment": "~2.10.6",
+    "mongoose": "^4.3.7",
+    "morgan": "~1.6.1",
+    "nodemailer": "~1.10.0",
+    "nodemailer-html-to-text": "~1.0.2",
+    "passport": "~0.3.2",
+    "passport-local": "~1.0.0",
+    "sails-build-dictionary": "~0.10.1",
+    "swig": "~1.4.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.4",
+    "mockery": "^1.4.0",
+    "sinon": "^1.17.3",
+    "supertest": "^1.1.0"
+  }
+}

@@ -1,0 +1,5 @@
+.idea
+.tmp
+.git
+assets/public
+memstats

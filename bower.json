@@ -1,0 +1,25 @@
+{
+  "name": "node-test-sample",
+  "version": "0.1.0",
+  "homepage": "https://github.com/arifsetiawan/node-test-sample",
+  "description": "Sample for Node.js unit and integration testing",
+  "contributors": [
+    {
+      "name": "Nurul Arif Setiawan",
+      "email": "arif@dycode.com"
+    }
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "async": "~0.9.2",
+    "lodash": "~3.7.0"
+  }
+}

@@ -1,0 +1,54 @@
+/*! app.css */
+
+/*
+ * Nurul Arif Setiawan <n.arif.setiawan@gmail.com>
+*/
+
+h1, h2, h3, h4, h5, h6 { 
+  font-family: 'Lato', sans-serif;
+}
+
+p, a, span, input {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  padding-top: 50px;
+}
+
+.starter-template {
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.starter-body {
+  padding: 20px 0px;
+}
+
+.starter-tab {
+  padding: 20px 0px;
+}
+
+.starter-content {
+  padding: 10px 20px;
+}
+
+.starter-content-a {
+  padding: 10px 15px;
+}
+
+.stat {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.stat .col-lg-4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top-buffer { 
+  margin-top:20px; 
+  margin-right: 20px;
+  margin-left: 20px;
+}
