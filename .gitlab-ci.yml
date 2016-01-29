@@ -8,5 +8,5 @@ test_node_mongo_linux:
         - npm run unit -loglevel silent
         - npm run integration -loglevel silent
     tags:
-        - nodejs
+        - node
         - mongodb
