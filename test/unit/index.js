@@ -4,15 +4,15 @@ var assert = require('assert');
 
 describe('Simple test', function() {
 
-    it('should fail', function() {
-        assert.equal('foo', 'bar', '`foo` equal `bar`');
+    it('bar equal bar', function() {
+        assert.equal('bar', 'bar', '`bar` equal `bar`');
     });
 
-    it('should ok', function() {
+    it('foo equal foo', function() {
         assert.equal('foo', 'foo', '`foo` equal `foo`');
     });
 
-    it('should ok', function() {
+    it('foo not equal bar', function() {
         assert.notEqual('foo', 'bar', '`foo` not equal `bar`');
     });
 });
