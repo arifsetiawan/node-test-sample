@@ -1,10 +1,7 @@
 'use strict';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development'; 
-
-//if (process.env.NODE_ENV !== 'production') {
-//    require("leaked-handles");
-//}
+// default to development
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // node modules
 const path = require('path');
@@ -21,9 +18,9 @@ const i18n = require('i18n');
 const MongoStore = require('connect-mongo')(session);
 
 // global
+global.config = require('./config/' + (process.env.APPCONFIG || ''));
 global._ = require('lodash');
 global.async = require('async');
-global.config = require('./config/' + (process.env.APPCONFIG || ''));
 global.info = require('./package.json');
 global.version = info.version;
 

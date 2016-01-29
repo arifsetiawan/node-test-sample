@@ -1,0 +1,11 @@
+stages:
+    - test
+
+test_node_mongo_linux:
+    stage: test
+    script:
+        - npm install
+        - npm run unit -loglevel silent
+        - npm run integration -loglevel silent
+    tags:
+        - linux
