@@ -1,5 +1,6 @@
 'use strict';
 
+const debug = require('debug')('app');
 const config = require('../../config/' + (process.env.NODE_ENV || ''));
 const version = require('../../package.json').version;
 
@@ -60,7 +61,7 @@ module.exports = () => {
     // error handler
     app.use((err, req, res, next) => {
         const errSplitted = err.stack.split('\n');
-        console.error({
+        debug({
             message: errSplitted[0],
             location: errSplitted[1]
                         .replace(config.appDir, '')

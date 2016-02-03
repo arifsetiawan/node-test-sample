@@ -35,7 +35,7 @@
     "debug": "DEBUG=app NODE_ENV=development node-debug app.js",
     "unit": "DEBUG=test NODE_ENV=test node_modules/mocha/bin/mocha test/unit/**/*.js",
     "test": "DEBUG=test NODE_ENV=test node_modules/mocha/bin/mocha test/unit/**/*.js",
-    "integration": "DEBUG=test NODE_ENV=test node_modules/mocha/bin/mocha --reporter spec --timeout 10000 test/integration/**/*.js"
+    "integration": "DEBUG=test,app NODE_ENV=test node_modules/mocha/bin/mocha --reporter spec --timeout 10000 test/integration/**/*.js"
   },
   "dependencies": {
     "bcryptjs": "~2.3.0",
