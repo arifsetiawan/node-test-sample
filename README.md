@@ -54,7 +54,7 @@ Install git pre commit hook with
 node bin/hook
 ```
 
-Now, when changes with failed test will not be committed. You can skip with `git commit --no-verify` but then Gitlab-CI will run tests too. 
+Now, when changes with failed test will not be committed. You can skip with `git commit --no-verify` but then Gitlab CI will run tests too. 
 
 # TODO
 
