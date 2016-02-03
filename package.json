@@ -30,6 +30,7 @@
     "url": "https://github.com/arifsetiawan/node-test-sample/issues"
   },
   "scripts": {
+    "jscs": "jscs .",
     "start": "DEBUG=app NODE_ENV=development nodemon --ext \".js|.css|.html\" app.js",
     "debug": "DEBUG=app NODE_ENV=development node-debug app.js",
     "unit": "DEBUG=test NODE_ENV=test node_modules/mocha/bin/mocha test/unit/**/*.js",
@@ -62,7 +63,13 @@
     "swig": "~1.4.2"
   },
   "devDependencies": {
+    "git-validate": "^2.1.4",
     "mocha": "^2.4.4",
     "supertest": "^1.1.0"
-  }
+  },
+  "pre-commit": [
+    "jscs",
+    "unit",
+    "integration"
+  ]
 }
