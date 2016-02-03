@@ -5,7 +5,7 @@ const assert = require('assert');
 describe('Simple test', function() {
 
     it('bar equal bar', function() {
-        assert.equal('bar', 'foo', '`bar` equal `bar`');
+        assert.equal('bar', 'bar', '`bar` equal `bar`');
     });
 
     it('foo equal foo', function() {

@@ -1,5 +1,6 @@
 'use strict';
 
+const debug = require('debug')('test');
 const assert = require('assert');
 
 const request = require('supertest');
@@ -15,6 +16,7 @@ describe('/api/v1/todos', function() {
         .expect(201)
         .expect('Content-Type', /json/)
         .expect(function(res) {
+            debug(res.body);
             assert(res.body.data, 'Response body has data');
             assert(res.body.data.task, 'Data has task field');
             assert.equal(res.body.data.task, 'Read The Art of Unit Testing', 'Task content is equal to sent content');
