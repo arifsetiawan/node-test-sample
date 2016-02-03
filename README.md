@@ -46,6 +46,16 @@ npm run integration -loglevel silent
 
 `-loglevel silent` is to suppress `npm-debug.log` in case tests failed.
 
+## Pre commit hook
+
+Install git pre commit hook with
+
+```
+node bin/hook
+```
+
+Now, when changes with failed test will not be committed. You can skip with `git commit --no-verify` but then Gitlab-CI will run tests too. 
+
 # TODO
 
 * Security
