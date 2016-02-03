@@ -1,5 +1,7 @@
 # Thinking in promises and generators
 
+See http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html for great reference on how to promise.
+
 ### Callback
 
 Call function, it does things. At some point in the future it will call callback at the end to exit the function and pass the result to caller
@@ -18,18 +20,9 @@ Call function, it will return promise. At some point in the future promise might
 
 ```
 function func1(params) {
-    return new Promise(function(resolve, reject) {
-        // do something
-        // when done
-        if (ok) {
-            resolve(result)
-        }
-        // or have error
-        else {
-            reject(err)
-        }
-    }
-    });
+    return Promise.resolve().then(function(){
+
+    })
 }
 ```
 
@@ -39,11 +32,11 @@ Generator can be used wrap sequences of promises executions so we get nice sync 
 
 ```
 function func1(params) {
-    return new Promise(...)
+    return Promise.resolve(...)
 }
 
 function func2(params) {
-    return new Promise(...)
+    return Promise.resolve(...)
 }
 
 // http://pag.forbeslindesay.co.uk/#/22

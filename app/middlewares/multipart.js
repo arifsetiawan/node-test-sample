@@ -8,6 +8,8 @@
   file will be removed when request end
 */
 
+const config = require('../../config/' + (process.env.NODE_ENV || ''));
+
 const fs = require('fs-extra');
 
 if (!fs.existsSync(config.uploadDir))

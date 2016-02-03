@@ -1,31 +1,34 @@
 
 'use strict';
 
-const Promise = require('bluebird');
-const Mongoose = Promise.promisifyAll(require('mongoose'));
+const debug = require('debug')('app');
+const config = require('../../config/' + (process.env.NODE_ENV || ''));
 
-Mongoose.connect(config.mongodb.connectionUri);
-global.Mongoose = Mongoose;
+const Mongoose = require('mongoose');
+
+var options = {
+    server: { socketOptions: { keepAlive: 1 } },
+};
+
+Mongoose.connect(config.mongodb.connectionUri, options);
 
 Mongoose.connection.on('connected', function() {
-    console.log('Mongoose default connection open to ' + config.mongodb.connectionUri);
+    debug('Mongoose default connection open to ' + config.mongodb.connectionUri);
 });
 
-// If the connection throws an error
 Mongoose.connection.on('error', function(err) {
-    console.log('Mongoose default connection error: ' + err);
+    debug('Mongoose default connection error: ' + err);
 });
 
-// When the connection is disconnected
 Mongoose.connection.on('disconnected', function() {
-    console.log('Mongoose default connection disconnected');
+    debug('Mongoose default connection disconnected');
 });
 
-// If the Node process ends, close the Mongoose connection
 process.on('SIGINT', function() {
     Mongoose.connection.close(function() {
-        console.log('Mongoose default connection disconnected through app termination');
+        debug('Mongoose default connection disconnected through app termination');
         process.exit(0);
     });
 });
- 
+
+module.exports = Mongoose;

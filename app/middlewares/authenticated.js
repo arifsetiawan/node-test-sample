@@ -11,10 +11,9 @@ exports.isAuthenticated = role => {
         }
 
         if (role && _.intersection(role, req.user.role).length === 0) {
-            const model = config.page;
-            res.status(401);
-            res.render('errors/401', model);
-            return;
+            const err = new Error('Not allowed');
+            err.status = 401;
+            next(err);
         }
 
         next();

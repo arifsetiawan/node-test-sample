@@ -1,5 +1,8 @@
 'use strict';
 
+const debug = require('debug')('app');
+const config = require('../../config/' + (process.env.NODE_ENV || ''));
+
 const path = require('path');
 const fs = require('fs');
 
@@ -71,10 +74,10 @@ module.exports = {
 
                     transporter.sendMail(mailOptions, (err, info) => {
                         if (err) {
-                            console.error(err);
+                            debug(err);
                             cb(err);
                         } else {
-                            console.log(`Email with type ${type} is sent: ${info.response}`, JSON.stringify(data));
+                            debug(`Email with type ${type} is sent: ${info.response}`, JSON.stringify(data));
                             cb(null, info);
                         }
                     });
@@ -82,7 +85,7 @@ module.exports = {
             });
 
         } else {
-            console.error(`Email with type ${type} is not supported`);
+            debug(`Email with type ${type} is not supported`);
         }
 
     },

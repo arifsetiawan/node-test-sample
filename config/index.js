@@ -1,5 +1,5 @@
 
-var path = require('path');
+const path = require('path');
 
 module.exports = {
 
@@ -13,17 +13,18 @@ module.exports = {
     mongodb: {
         host: 'localhost',
         port: '27017',
-        dbname: 'nodetest',
+        dbname: 'nodedev',
         username: '',
         password: '',
         get connectionUri() {
-            return 'mongodb://' + this.host + ':' + this.port + '/' + this.dbname;
+            return `mongodb://${this.host}:${this.port}/${this.dbname}`;
         },
     },
 
     // dir
     appDir: path.join(__dirname, '..'),
     uploadDir: path.join(__dirname, '..', '/assets/upload'),
+    logDir: path.join(__dirname, '../logs/dev/'),
 
     // locale
     i18n: {
@@ -32,7 +33,7 @@ module.exports = {
 
     // swig
     swig: {
-        cache: 'memory',
+        cache: false,
     },
 
     // nodemailer

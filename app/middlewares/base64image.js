@@ -1,5 +1,7 @@
 'use strict';
 
+const config = require('../../config/' + (process.env.NODE_ENV || ''));
+
 const path = require('path');
 const fs = require('fs');
 

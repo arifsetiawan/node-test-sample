@@ -30,18 +30,20 @@
     "url": "https://github.com/arifsetiawan/node-test-sample/issues"
   },
   "scripts": {
-    "start": "APPCONFIG=dev.local nodemon --ext \".js|.css|.html\" app.js",
-    "integration": "APPCONFIG=dev.local NODE_ENV=test node_modules/mocha/bin/mocha test/integration/",
-    "unit": "NODE_ENV=test node_modules/mocha/bin/mocha test/unit/"
+    "start": "DEBUG=app NODE_ENV=development nodemon --ext \".js|.css|.html\" app.js",
+    "debug": "DEBUG=app NODE_ENV=development node-debug app.js",
+    "unit": "DEBUG=test NODE_ENV=test node_modules/mocha/bin/mocha test/unit/**/*.js",
+    "test": "DEBUG=test NODE_ENV=test node_modules/mocha/bin/mocha test/unit/**/*.js",
+    "integration": "DEBUG=test NODE_ENV=test node_modules/mocha/bin/mocha --reporter spec --timeout 10000 test/integration/**/*.js"
   },
   "dependencies": {
-    "async": "~1.5.0",
     "bcryptjs": "~2.3.0",
     "bluebird": "^3.0.5",
     "body-parser": "~1.14.1",
     "connect-flash": "~0.1.1",
     "connect-mongo": "^1.1.0",
     "cookie-parser": "~1.4.0",
+    "debug": "^2.2.0",
     "express": "~4.13.3",
     "express-session": "~1.12.1",
     "formidable": "~1.0.17",
@@ -61,8 +63,6 @@
   },
   "devDependencies": {
     "mocha": "^2.4.4",
-    "mockery": "^1.4.0",
-    "sinon": "^1.17.3",
     "supertest": "^1.1.0"
   }
 }

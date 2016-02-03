@@ -1,5 +1,8 @@
 'use strict';
 
+const config = require('../../config/' + (process.env.NODE_ENV || ''));
+const version = require('../../package.json').version;
+
 const http = require('http');
 
 module.exports = () => {
