@@ -8,7 +8,7 @@ const app = require('../../app');
 
 describe('/api/v1/todos', function() {
 
-    it('POST /api/v1/todos should return 201 OK with response contain original data', function(done) {
+    it('POST /api/v1/todos should return 201 Created with response contain original data', function(done) {
         request(app)
         .post('/api/v1/todos')
         .set('Accept', 'application/json')
