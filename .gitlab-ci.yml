@@ -1,7 +1,7 @@
 stages:
     - test
 
-test_node_mongo_linux:
+test_with_mocha:
     stage: test
     script:
         - npm install
