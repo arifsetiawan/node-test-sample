@@ -61,6 +61,10 @@ Changes with failed test will not be committed.
 * Skip pre commit hook with `git commit --no-verify`
 * Skip Gitlab CI with `[ci skip]` word in commit message
 
+## Browser test with selenium
+
+See [selenium.md](docs/selenium.md)
+
 # TODO
 
 * Security

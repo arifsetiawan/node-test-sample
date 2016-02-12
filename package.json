@@ -35,7 +35,9 @@
     "debug": "DEBUG=app NODE_ENV=development node-debug app.js",
     "unit": "DEBUG=test NODE_ENV=test node_modules/mocha/bin/mocha test/unit/**/*.js",
     "test": "DEBUG=test NODE_ENV=test node_modules/mocha/bin/mocha test/unit/**/*.js",
-    "integration": "DEBUG=test,app NODE_ENV=test node_modules/mocha/bin/mocha --reporter spec --timeout 10000 test/integration/**/*.js"
+    "integration": "DEBUG=test,app NODE_ENV=test node_modules/mocha/bin/mocha --reporter spec --timeout 10000 test/integration/**/*.js",
+    "webdemo": "node_modules/mocha/bin/mocha test/webdemo/**/*.js --timeout 20000",
+    "web": "node_modules/mocha/bin/mocha test/web/**/*.js --timeout 20000"
   },
   "dependencies": {
     "bcryptjs": "~2.3.0",
@@ -63,6 +65,7 @@
   "devDependencies": {
     "git-validate": "^2.1.4",
     "mocha": "^2.4.4",
+    "selenium-webdriver": "^2.48.2",
     "supertest": "^1.1.0"
   },
   "pre-commit": [

@@ -3,3 +3,6 @@
 .git
 assets/public
 memstats
+test
+node_modules
+bower_components

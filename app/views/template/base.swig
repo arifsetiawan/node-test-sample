@@ -12,6 +12,8 @@
     <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
     {% block styles %}{% endblock %}
   </head>
 
