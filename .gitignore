@@ -7,3 +7,4 @@ bower_components
 npm-debug.log
 log
 phantomjsdriver.log
+.vscode

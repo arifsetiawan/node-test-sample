@@ -10,7 +10,7 @@ A [https://nodejs.org/](https://nodejs.org/) web app base template
 
 * [Express 4.x](http://expressjs.com/)
 * [Mongoose](https://github.com/Automattic/mongoose) for working with MongoDB database
-* [Swig](http://paularmstrong.github.io/swig/). Its not maintained now, [see here](https://github.com/paularmstrong/swig/issues/628)
+* [Swig](https://github.com/node-swig/swig-templates)
 * [Bluebird](bluebirdjs.com). ES2015 Promises and Generator for async executions
 
 ## Promises
@@ -69,7 +69,6 @@ See [selenium.md](docs/selenium.md)
 
 * Security
 * Build tools (grunt or gulp or use npm script)
-* Change swig or not
 
 # Style Guide
 
